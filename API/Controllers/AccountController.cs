@@ -23,21 +23,22 @@ public class AccountController(DataContext context, ITokenService tokenService):
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto){
 
         if(await SameUser(registerDto.UserName)) return BadRequest("Username already exists");
+        return Ok();
 
-        using var hmac =new HMACSHA512();
-        var user = new AppUser(){
-            UserName=registerDto.UserName.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
-        };
+        // using var hmac =new HMACSHA512();
+        // var user = new AppUser(){
+        //     UserName=registerDto.UserName.ToLower(),
+        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt = hmac.Key
+        // };
 
-         context.Users.Add(user);
-        await context.SaveChangesAsync();
+        //  context.Users.Add(user);
+        // await context.SaveChangesAsync();
 
-        return new UserDto{
-            Username = user.UserName,
-            Token = tokenService.GetToken(user)
-        };
+        // return new UserDto{
+        //     Username = user.UserName,
+        //     Token = tokenService.GetToken(user)
+        // };
 
     }
 
