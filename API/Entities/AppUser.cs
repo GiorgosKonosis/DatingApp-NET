@@ -1,5 +1,4 @@
 using API.Extensions;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace API.Entities;
 
@@ -36,8 +35,8 @@ public class AppUser
    public List<Photo> Photos { get; set; } = [];
 
 
-   // public int GetAge()
-   // {
-   //    return DateOfBirth.CalculateAge();
-   // }
+   public int GetAge()
+   {
+      return DateOfBirth.CalculateAge();
+   }
 }
