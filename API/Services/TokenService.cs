@@ -11,7 +11,8 @@ namespace API.Services;
 
 public class TokenService(IConfiguration config) : ITokenService
 {
-    public string GetToken(AppUser user)
+
+    public string CreateToken(AppUser user)
     {
         var tokenKey = config["TokenKey"] ?? throw new Exception("Cannot Access tokenkey from appsettings");
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));

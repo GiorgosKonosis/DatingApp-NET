@@ -5,5 +5,5 @@ namespace API.Interfaces;
 
 public interface ITokenService
 {
-    string GetToken(AppUser user);
+    string CreateToken(AppUser user);
 }

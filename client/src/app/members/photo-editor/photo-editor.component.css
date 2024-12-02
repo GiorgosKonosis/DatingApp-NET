@@ -1,0 +1,10 @@
+.nv-file-over {
+  border: 2px solid #4caf50;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: #555;
+}
+.btn-danger {
+  background-color: #f44336;
+  border-color: #f44336;
+}
